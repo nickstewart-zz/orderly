@@ -1,0 +1,7 @@
+<h1><%= pluralize(@orders.size, "Order") %></h1>
+
+<ul>
+	<% @orders.each do |order| %>
+		<li><%= order %></li>
+	<% end %>
+</ul>
