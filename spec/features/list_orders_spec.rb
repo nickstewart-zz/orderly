@@ -3,7 +3,11 @@ require 'spec_helper'
 describe "Viewing the list of orders" do
 
   it "shows the orders" do
-        
+    
+    order1 = Order.create(order_number: 1,
+                          customer: "Acme1",
+                          
+                          )
     visit orders_url
 
     expect(page).to have_text("3 Orders")
