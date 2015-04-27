@@ -21,12 +21,14 @@ describe "Viewing the list of orders" do
     order3 = Order.create(customer: "Acme3",
                           model_number: "ADS99",
                           description: "Yet Another Thing",
-                          sales_person: "Matt",
+                          sales_person: "Jill",
                           total: 907.00,
                           terms: "30 Days")
                           
     visit orders_url
 
+    expect(page).to have_text("3 Orders")
+    
     expect(page).to have_text(order1.customer)
     expect(page).to have_text(order1.model_number)
     expect(page).to have_text(order1.description)
@@ -34,6 +36,19 @@ describe "Viewing the list of orders" do
     expect(page).to have_text(order1.total)
     expect(page).to have_text(order1.terms)
     
+    expect(page).to have_text(order2.customer)
+    expect(page).to have_text(order2.model_number)
+    expect(page).to have_text(order2.description)
+    expect(page).to have_text(order2.sales_person)
+    expect(page).to have_text(order2.total)
+    expect(page).to have_text(order2.terms)
+    
+    expect(page).to have_text(order3.customer)
+    expect(page).to have_text(order3.model_number)
+    expect(page).to have_text(order3.description)
+    expect(page).to have_text(order3.sales_person)
+    expect(page).to have_text(order3.total)
+    expect(page).to have_text(order3.terms)
   end
 
 end
