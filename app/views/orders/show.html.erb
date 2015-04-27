@@ -1,0 +1,27 @@
+<article>
+  <p>
+    <%= order.description %>
+  </p>
+  <table>
+    <tr>
+      <th>Customer:</th>
+      <td><%= order.customer %></td>
+    </tr>
+    <tr>
+      <th>Model Number:</th>
+      <td><%= order.model_number %></td>
+    </tr>
+    <tr>
+      <th>Sales Person:</th>
+      <td><%= order.sales_person %></td>
+    </tr>
+    <tr>
+      <th>Total:</th>
+      <td><%= number_to_currency(order.total) %></td>
+    </tr>
+    <tr>
+      <th>Terms:</th>
+      <td><%= order.terms %></td>
+    </tr>
+  </table>
+</article>
