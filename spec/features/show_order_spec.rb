@@ -9,7 +9,7 @@ describe "Viewing and individual order" do
                           total: 678.00,
                           terms: "30 Days")
                           
-    visit "http://example.com/movies/1"
+    visit "http://example.com/orders/1"
     
     expect(page).to have_text(order1.customer)
     expect(page).to have_text(order1.model_number)
