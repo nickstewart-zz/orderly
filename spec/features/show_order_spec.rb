@@ -2,12 +2,7 @@ describe "Viewing and individual order" do
   
   it "shows the order's details" do
     
-    order = Order.create(customer: "Acme1",
-                          model_number: "XYZ22",
-                          description: "New New Thing",
-                          sales_person: "Jill",
-                          total: 678.00,
-                          terms: "30 Days")
+    order = Order.create(order_attributes)
                           
     visit order_url(order)
     
@@ -18,5 +13,6 @@ describe "Viewing and individual order" do
     expect(page).to have_text(order.total)
     expect(page).to have_text(order.terms)
   end
+  
 end
 
