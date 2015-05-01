@@ -17,6 +17,8 @@ describe "Viewing and individual order" do
   it "shows the number of days remaining if the due date is in the future" do
      order = Order.create(order_attributes)
      
+     visit order_url(order)
+     
      expect(page).to have_text("Payment due in 1 day")
   end
     
