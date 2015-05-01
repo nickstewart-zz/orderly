@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501131916) do
+ActiveRecord::Schema.define(version: 20150501134347) do
 
   create_table "orders", force: true do |t|
     t.string   "customer"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20150501131916) do
     t.string   "description"
     t.string   "sales_person"
     t.decimal  "total"
-    t.string   "terms"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "invoiced_on"
+    t.integer  "payment_terms"
   end
 
 end
