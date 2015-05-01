@@ -20,8 +20,8 @@
       <td><%= number_to_currency(@order.total) %></td>
     </tr>
     <tr>
-      <th>Payment Terms:</th>
-      <td><%= pluralize(@order.payment_terms, "Day") %></td>
+	  <th>Delivery info:</th>
+      <td><%= format_delivery_due_in(@order) %></td>
     </tr>
   </table>
   <p>

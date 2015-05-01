@@ -5,7 +5,6 @@ def order_attributes(overrides = {})
     description: "New New Thing",
     sales_person: "Jill",
     total: 678.00,
-    invoiced_on: Date.today,
-    payment_terms: 1
+    delivery_due_on: "2015-05-2"
   }.merge(overrides)
 end
