@@ -1,12 +1,7 @@
 describe 'Navigting Orders' do
   
   it 'allows navigation from the order detail page to the listings page' do
-    order = Order.create(customer: "Acme1",
-                          model_number: "XYZ22",
-                          description: "New New Thing",
-                          sales_person: "Jill",
-                          total: 678.00,
-                          terms: "30 Days")
+    order = Order.create(order_attributes)
   
     visit order_url(order)
     
@@ -17,12 +12,7 @@ describe 'Navigting Orders' do
   end
   
   it 'allows navigation from the listing page to the order detail page' do
-    order = Order.create(customer: "Acme1",
-                          model_number: "XYZ22",
-                          description: "New New Thing",
-                          sales_person: "Jill",
-                          total: 678.00,
-                          terms: "30 Days")
+    order = Order.create(order_attributes)
   
     visit orders_url
     
