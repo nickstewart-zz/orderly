@@ -11,8 +11,17 @@ describe "Viewing and individual order" do
     expect(page).to have_text(order.description)
     expect(page).to have_text(order.sales_person)
     expect(page).to have_text(order.total)
-    expect(page).to have_text(order.terms)
+    expect(page).to have_text("1 Day")
   end
+  
+  it "shows the number of days remaining if the due date is in the future" do
+     order = Order.create(order_attributes)
+     
+     expect(page).to have_text("Payment due in 1 day")
+  end
+    
+  
+  it "shows 'Payment Due!' if due date is in the past"
   
 end
 
