@@ -6,5 +6,5 @@ def order_attributes(overrides = {})
     sales_person: "Jill",
     total: 678.00,
     terms: "30 Days"
-  }.merge(overides)
+  }.merge(overrides)
 end
