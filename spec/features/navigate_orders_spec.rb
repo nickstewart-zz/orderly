@@ -16,7 +16,7 @@ describe 'Navigting Orders' do
   
     visit orders_url
     
-    click_link order.description
+    click_link order.id
     
     expect(current_path).to eq(order_path(order))
                           

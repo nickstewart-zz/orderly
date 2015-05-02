@@ -27,7 +27,7 @@ describe "Viewing the list of orders" do
                           
     visit orders_url
 
-    expect(page).to have_text("3 Orders")
+    expect(page).to have_text("3 Sales Orders")
     
     expect(page).to have_text(order1.customer)
     expect(page).to have_text(order1.model_number)
