@@ -13,8 +13,23 @@ class OrdersController < ApplicationController
   
   def update
     @order = Order.find(params[:id])
-    order_params = params.require(:order).permit!
     @order.update(order_params)
     redirect_to @order
+  end
+  
+  def new
+    @order = Order.new
+  end
+  
+  def create
+    @order = Order.new(order_params)
+    @order.save
+    redirect_to @order
+  end
+  
+  private
+  
+  def order_params
+    params.require(:order).permit!
   end
 end
