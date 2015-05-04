@@ -12,10 +12,6 @@ describe "Creating a new order" do
     fill_in "Total", with: 6572
     # select (Time.now.year - 1).to_s, :from => "delivery_due_on"
 
-    # If you're taking advantage of the HTML 5 date field in Chrome,
-    # you'll need to use 'fill_in' rather than 'select'
-    # fill_in "Released on", with: (Time.now.year - 1).to_s
-
     click_button 'Create Order'
 
     expect(current_path).to eq(order_path(Order.last))
