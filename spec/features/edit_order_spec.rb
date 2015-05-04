@@ -10,6 +10,11 @@ describe "Editing an order" do
     expect(current_path).to eq(edit_order_path(order))
         
     expect(find_field('Customer').value).to eq(order.customer)
+    expect(find_field('Model number').value).to eq(order.model_number)
+    expect(find_field('Description').value).to eq(order.description)
+    # expect(find_field('Delivery due on').value).to eq(order.delivery_due_on)
+    expect(find_field('Sales person').value).to eq(order.sales_person)
+    
   end
   
 end
