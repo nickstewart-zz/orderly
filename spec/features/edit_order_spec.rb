@@ -15,6 +15,13 @@ describe "Editing an order" do
     # expect(find_field('Delivery due on').value).to eq(order.delivery_due_on)
     expect(find_field('Sales person').value).to eq(order.sales_person)
     
+    fill_in 'Customer', with: "Updated Order Customer"
+
+    click_button 'Update Order'
+
+    expect(current_path).to eq(order_path(order))
+
+    expect(page).to have_text('Updated Order Customer')
   end
   
 end
