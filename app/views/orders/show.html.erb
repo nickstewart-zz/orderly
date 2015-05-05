@@ -25,7 +25,6 @@
     </tr>
   </table>
   <p>
-	<%= link_to("All Orders", orders_path)  %> |
 	<%= link_to("Edit", edit_order_path(@order)) %> |
 	<%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %>
   </p>
