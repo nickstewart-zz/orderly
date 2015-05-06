@@ -1,9 +1,9 @@
 describe "A product" do
 
   it "belongs to an order" do
-    movie = Order.create(order_attributes)
+    order = Order.create(order_attributes)
 
-    product = order.product.new(product_attributes)
+    product = order.products.new(product_attributes)
 
     expect(product.order).to eq(order)
   end
