@@ -17,9 +17,9 @@ describe "A product" do
   it "requires a code" do
     product = Product.new(code: "")
 
-    prduct.valid? # populates errors
+    product.valid? # populates errors
 
-    expect(product.errors[:name].any?).to eq(true)
+    expect(product.errors[:code].any?).to eq(true)
   end
 
   it "requires a description" do
