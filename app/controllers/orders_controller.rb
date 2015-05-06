@@ -13,8 +13,11 @@ class OrdersController < ApplicationController
   
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to @order
+    if @order.update(order_params)
+      redirect_to @order, notice: "Order successfully updated!"
+    else
+      render :edit
+    end
   end
   
   def new
@@ -23,14 +26,17 @@ class OrdersController < ApplicationController
   
   def create
     @order = Order.new(order_params)
-    @order.save
-    redirect_to @order
+    if @order.save
+      redirect_to @order, notice: "Order successfully created!"
+    else
+      render :new
+    end
   end
   
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to orders_url
+    redirect_to orders_url, alert: "Order successfully deleted!"
   end
   
   private

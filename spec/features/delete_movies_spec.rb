@@ -8,5 +8,7 @@ describe "Deleting a movie" do
 
     expect(current_path).to eq(orders_path)
     expect(page).not_to have_text(order.customer)
+    expect(page).to have_text("Order successfully deleted!")
+    
   end
 end

@@ -20,9 +20,8 @@ describe "Editing an order" do
     click_button 'Update Order'
 
     expect(current_path).to eq(order_path(order))
-
+    expect(page).to have_text('Order successfully updated!')
     expect(page).to have_text('Updated Order Customer')
   end
-  
 end
   

@@ -17,5 +17,6 @@ describe "Creating a new order" do
     expect(current_path).to eq(order_path(Order.last))
 
     expect(page).to have_text('New Order Customer')
+    expect(page).to have_text('Order successfully created!')
   end
 end
