@@ -12,7 +12,7 @@ end
 def product_attributes(overrides = {})
   {
     code: "O-22",
-    description: "Original Series, Mahogany and Cedar. Options: None specified"
+    description: "Original Series, Mahogany and Cedar. Options: None specified",
     price: 2765
   }.merge(overrides)
 end
