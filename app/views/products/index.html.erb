@@ -1,0 +1,18 @@
+<h1>Order Ref.: <%= @order.id %> for <%= @order.customer %> </h1>
+
+<p>
+	Order placed <%= time_ago_in_words(@order.created_at) %> ago
+</p>
+
+<ol id="products">
+  <% @products.each do |product| %>
+    <li>
+      <span class="code"><%= product.code %></span>
+	  <span class="description"><%= product.description %></span>
+      <span class="price"><%= number_to_currency(product.price) %></span>  
+    <p>
+	  Options: [Options hash formatted and displayed]
+    </p>
+    </li>
+  <% end %>
+</ol>
