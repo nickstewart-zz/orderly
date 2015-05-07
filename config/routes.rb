@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :products
-
   root 'orders#index'
-  resources :orders
+  
+  resources :orders do
+    resources :products
+  end
   # get 'orders' => 'orders#index'
   # get 'order/new' => 'orders#new', as: 'new_order'
   # get 'orders/:id' => 'orders#show', as: 'order'
