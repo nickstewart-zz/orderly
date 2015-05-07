@@ -26,6 +26,7 @@
   </table>
   <p>
 	<%= link_to("Edit", edit_order_path(@order)) %> |
-	<%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %>
+	<%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %> |
+	<%= link_to pluralize(@order.products.size, "product"), order_products_path(@order) %>
   </p>
 </article>
