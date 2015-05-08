@@ -4,51 +4,37 @@ describe "Viewing the list of orders" do
 
   it "shows the orders" do
     
-    order1 = Order.create(customer: "Acme1",
-                          model_number: "XYZ22",
-                          description: "New New Thing",
-                          sales_person: "Joe",
-                          total: 678.00,
-                          delivery_due_on: "2015-05-2")
+    order1 = Order.create(order_attributes)
+    product1 = order1.products.create(product_attributes)
+    product2 = order1.products.create(product_attributes(code: "O-32", group: "Original Series"))
                           
-    order2 = Order.create(customer: "Acme2",
-                          model_number: "MKU23",
-                          description: "Another Thing",
-                          sales_person: "Tina",
-                          total: 821.00,
-                          delivery_due_on: "2015-05-2")
+    order2 = Order.create(order_attributes(customer_company: "The Fellowship of Acoustic"))
+    product3 = order2.products.create(product_attributes)
+    product4 = order2.products.create(product_attributes(code: "O-25c",
+                                                         group: "Original Series",
+                                                         options_standard: "Size: O, Back and Sides: Indian Rosewood, Sound Board: Sitka Spruce", 
+                                                         options_additional: "Cutaway: Yes"))
                           
-    order3 = Order.create(customer: "Acme3",
-                          model_number: "ADS99",
-                          description: "Yet Another Thing",
-                          sales_person: "Jill",
-                          total: 907.00,
-                          delivery_due_on: "2015-05-2")
+    order3 = Order.create(order_attributes(customer_company: "Guitar Guitar"))
+    product5 = order3.products.create(product_attributes)
+    product6 = order3.products.create(product_attributes(code: "O-32", group: "Original Series"))
                           
     visit orders_url
 
     expect(page).to have_text("3 Sales Orders")
     
-    expect(page).to have_text(order1.customer)
-    expect(page).to have_text(order1.model_number)
-    expect(page).to have_text(order1.description)
-    expect(page).to have_text(order1.sales_person)
+    expect(page).to have_text(order1.customer_company)
+    expect(page).to have_text(order1.customer_name)
     expect(page).to have_text(order1.total)
-    expect(page).to have_text(order1.delivery_due_on)
-    
-    expect(page).to have_text(order2.customer)
-    expect(page).to have_text(order2.model_number)
-    expect(page).to have_text(order2.description)
-    expect(page).to have_text(order2.sales_person)
-    expect(page).to have_text(order2.total)
-    expect(page).to have_text(order2.delivery_due_on)
-    
-    expect(page).to have_text(order3.customer)
-    expect(page).to have_text(order3.model_number)
-    expect(page).to have_text(order3.description)
-    expect(page).to have_text(order3.sales_person)
-    expect(page).to have_text(order3.total)
-    expect(page).to have_text(order3.delivery_due_on)
+    expect(page).to have_text(product1.code)
+    expect(page).to have_text(product1.group)
+    expect(page).to have_text(product1.options_standard)
+    expect(page).to have_text(product1.options_additaional)
+    expect(page).to have_text(product2.code)
+    expect(page).to have_text(product2.group)
+    expect(page).to have_text(product2.options_standard)
+    expect(page).to have_text(product2.options_additaional)
+
   end
 
 end
