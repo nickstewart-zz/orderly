@@ -8,35 +8,122 @@
 
 Order.create!([
   {
-    customer: "Retailer1",
-    model_number: "XYZ22",
-    description: "New New Thing",
-    sales_person: "Joe",
+    customer_company: "Bluedog",
+    customer_name: "Jenn",
     total: 678.00,
-    delivery_due_on: "2015-05-2"
   },
   {
-    customer: "Retailer2",
-    model_number: "ADS99",
-    description: "Another New Thing",
-    sales_person: "Jill",
-    total: 907.00,
-    delivery_due_on: "2015-05-2"
+    customer_company: "The Fellowship of acoustic guitars",
+    customer_name: "Rudi",
+    total: 907.00
   },
   {
-    customer: "Retailer3",
-    model_number: "MKU23",
-    description: "And Another Thing",
-    sales_person: "Tina",
-    total: 821.00,
-    delivery_due_on: "2015-05-2"
+    customer_company: "Guitar Guitar",
+    customer_name: "Steve",
+    total: 4050.00
   },
   {
-    customer: "Retailer4",
-    model_number: "SKU33",
-    description: "Yet Another New Thing",
-    sales_person: "Sam",
-    total: 3400.00,
-    delivery_due_on: "2015-05-2"
+    customer_company: "Wunjo",
+    customer_name: "Jeff",
+    total: 2330.00
+  }
+])
+
+Product.create!([
+  {
+    order_id: 1,
+    code: "O-35",
+    group: "35 Series",
+    options_standard: "Size: O, Indian Rosewood/Sitka Spruce",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 1,
+    code: "O-32",
+    group: "Original Series",
+    options_standard: "Size: O, Indian Rosewood/Sitka Spruce",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 2,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 2,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 2,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 3,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 3,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 3,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 4,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 4,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 4,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
+  },
+  {
+    order_id: 4,
+    code: "O-22",
+    group: "Original Series",
+    options_standard: "Size: O, Mahogany/Red Cedar",
+    options_additional: "None specified",
+    price: 2765.00
   }
 ])
