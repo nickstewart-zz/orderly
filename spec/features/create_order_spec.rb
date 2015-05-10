@@ -6,17 +6,27 @@ describe "Creating a new order" do
 
     expect(current_path).to eq(new_order_path)
 
-    fill_in "Customer", with: "New Order Customer"
-    fill_in "Description", with: "New new thing"
-    fill_in "Model", with: "HYO214"
+    # Fill in Order detials
+    fill_in "Customer company", with: "Guitar Sofa"
+    fill_in "Customer name", with: "Sockgoo Choi"
     fill_in "Total", with: 6572
-    # select (Time.now.year - 1).to_s, :from => "delivery_due_on"
+    
+    # Fill in Product details
+    fill_in "Code", with: "F-38"
+    fill_in "Group", with: "38 Series"
+    fill_in "Options_standard", with: "Size: O, Indian Rosewood/Sitka Spruce"
+    fill_in "Options_additional", with: "None Specified"
+    fill_in "Total", with: 6572
+
 
     click_button 'Create Order'
 
     expect(current_path).to eq(order_path(Order.last))
 
-    expect(page).to have_text('New Order Customer')
+    expect(page).to have_text('Guitar Sofa')
+    expect(page).to have_text('Sockgoo Choi')
+    expect(page).to have_text('F-38')
+    expect(page).to have_text('38 Series')
     expect(page).to have_text('Order successfully created!')
   end
 end
