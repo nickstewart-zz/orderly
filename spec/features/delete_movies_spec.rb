@@ -7,7 +7,7 @@ describe "Deleting a movie" do
     click_link 'Delete'
 
     expect(current_path).to eq(orders_path)
-    expect(page).not_to have_text(order.customer)
+    expect(page).not_to have_text(order.customer_company)
     expect(page).to have_text("Order successfully deleted!")
     
   end
