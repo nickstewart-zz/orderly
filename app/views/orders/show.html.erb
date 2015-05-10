@@ -1,6 +1,6 @@
 <article class="order">
   <h3>Order Ref.: <%= link_to @order.id, order_path(@order)  %></h3>
-  <p>Date: <%= @order.created_at %></span></h3>
+  <p>Date: <%= @order.created_at %></h3>
   <p>Customer: <%= @order.customer_company %></p>
   <p>Contact: <%= @order.customer_name %></p>
   <table>
@@ -19,8 +19,8 @@
   </table>
   <p>Total: <%= number_to_currency(@order.total) %></p>
   <p>
-    <%= link_to("Edit", edit_order_path(@order)) %> |
-    <%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %> |
-    <%= link_to pluralize(@order.products.size, "Product"), order_products_path(@order) %>
+  <%= link_to("Edit", edit_order_path(@order)) %> |
+  <%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %> |
+  <%= link_to pluralize(@order.products.size, "Product"), order_products_path(@order) %>
   </p>
 </article>
