@@ -35,7 +35,7 @@ describe "A product" do
 
     product.valid?
 
-    expect(product.errors[:options_additional].any?).to eq(true)
+    expect(product.errors[:options_additional].any?).to eq(false)
   end
 
   it "requires a price" do
