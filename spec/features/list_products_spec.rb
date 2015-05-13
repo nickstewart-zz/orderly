@@ -12,6 +12,6 @@ describe "Viewing a list of products" do
         
     expect(page).to have_text(product1.code)
     expect(page).to have_text(product2.code)
-    expect(page).to have_text(product3.code)
+    expect(page).not_to have_text(product3.code)
   end
 end

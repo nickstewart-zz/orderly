@@ -18,14 +18,6 @@ describe "Creating a new order" do
     fill_in "Options additional", with: "None Specified"
     fill_in "Price", with: 6572
 
-    click_button 'Add Product'
-
-    fill_in "Code", with: "O-22"
-    fill_in "Group", with: "Original Series"
-    fill_in "Options standard", with: "Size: O, Mahogany/Cedar"
-    fill_in "Options additional", with: "None Specified"
-    fill_in "Price", with: 2765
-
     click_button 'Create Order'
 
     expect(current_path).to eq(order_path(Order.last))
@@ -34,9 +26,5 @@ describe "Creating a new order" do
     expect(page).to have_text('Sockgoo Choi')
     expect(page).to have_text('F-38')
     expect(page).to have_text('38 Series')
-
-    expect(page).to have_text('O-22')
-    expect(page).to have_text('Original Series')
-    expect(page).to have_text('Order successfully created!')
   end
 end

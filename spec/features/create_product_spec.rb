@@ -17,7 +17,7 @@ describe "Creating a new product" do
 
     fill_in "Code", with: "F-25"
     fill_in "Group", with: "Original"
-    fill_in "Options_standard", with: "Size: F, Indain Rosewood/Red Cedar"
+    fill_in "Options_standard", with: "Size: F, Indian Rosewood/Red Cedar"
     fill_in "Options_additional", with: "None specified"
     fill_in "Price", with: "2775.00"
 

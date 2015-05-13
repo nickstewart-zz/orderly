@@ -18,6 +18,7 @@
     <% end %>
   </table>
   <p>Total: <%= number_to_currency(@order.total) %></p>
+  <p><%= link_to "Add New Product", new_order_product_path(@order) %></p>
   <p>
   <%= link_to("Edit", edit_order_path(@order)) %> |
   <%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %> |
