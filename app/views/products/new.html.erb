@@ -2,20 +2,12 @@
 
 <p>Order Ref.: <%= @order.id %></p>
 <p>Customer: <%= @order.customer_company %></p>
-<table>
-  <tr>
-    <th>Model Number</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
-  <% @order.products.each do |product| %>
-    <tr>
-      <td><%= product.code %></td>
-      <td><%= product.group %>, <%= product.options_standard %>, Options: <%= product.options_additional %></td>
-      <td><%= product.price %></td>
-    </tr>
-  <% end %>
-</table>
-
-
-  
+<%= form_for([@order, @product]) do |f| %>
+  <ul>
+    <%= render 'orders/product_fields', :f => f  %>
+  </ul>
+  <p>
+    <%= f.submit %> | 
+    <%= link_to "Cancel", order_path(@order) %>
+  </p>
+<% end %>
