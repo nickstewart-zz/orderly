@@ -12,18 +12,15 @@ describe "Creating a new product" do
 
     expect(current_path).to eq(new_order_product_path(order))
 
-    expect(page).to have_text('Bluedog')
-    expect(page).to have_text('O-22')
-
     fill_in "Code", with: "F-25"
     fill_in "Group", with: "Original"
-    fill_in "Options_standard", with: "Size: F, Indian Rosewood/Red Cedar"
-    fill_in "Options_additional", with: "None specified"
+    fill_in "Options standard", with: "Size: F, Indian Rosewood/Red Cedar"
+    fill_in "Options additional", with: "None specified"
     fill_in "Price", with: "2775.00"
 
     click_button 'Create Product'
 
-    expect(current_path).to eq(order_path)
+    expect(current_path).to eq(order_path(order))
   end
 end
 
