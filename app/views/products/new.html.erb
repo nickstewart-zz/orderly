@@ -3,6 +3,7 @@
 <p>Order Ref.: <%= @order.id %></p>
 <p>Customer: <%= @order.customer_company %></p>
 <%= form_for([@order, @product]) do |f| %>
+  <%= render "shared/errors", object: @product %>
   <ul>
     <%= render 'orders/product_fields', :f => f  %>
   </ul>
