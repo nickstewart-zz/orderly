@@ -25,16 +25,14 @@ describe "Viewing the list of orders" do
     
     expect(page).to have_text(order1.customer_company)
     expect(page).to have_text(order1.customer_name)
-    expect(page).to have_text(order1.total)
-    expect(page).to have_text(product1.code)
-    expect(page).to have_text(product1.group)
-    expect(page).to have_text(product1.options_standard)
-    expect(page).to have_text(product1.options_additional)
-    expect(page).to have_text(product2.code)
-    expect(page).to have_text(product2.group)
-    expect(page).to have_text(product2.options_standard)
-    expect(page).to have_text(product2.options_additional)
+    expect(page).to have_text("2 Products")
+    expect(page).to have_text(order2.customer_company)
+    expect(page).to have_text(order2.customer_name)
+    expect(page).to have_text("2 Products")
 
+    expect(page).to have_text(order3.customer_company)
+    expect(page).to have_text(order3.customer_name)
+    expect(page).to have_text("2 Products")
   end
 
 end
