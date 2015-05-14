@@ -13,7 +13,7 @@
     <tr>
       <td><%= product.code %></td>
       <td><%= product.group %>, <%= product.options_standard %>, Options: <%= product.options_additional %></td>
-      <td><%= product.price %>
+      <td><%= number_to_currency(product.price) %>
     </tr>
     <% end %>
   </table>
