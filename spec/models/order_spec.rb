@@ -7,6 +7,8 @@ describe "An Order" do
     
     expect(order.products).to include(product1)
     expect(order.products).to include(product2)
+    sum_of_product_prices = order.products.sum(:price) 
+    expect(order.total).to eq(sum_of_product_prices)
   end
 
   it "deletes associated products" do
