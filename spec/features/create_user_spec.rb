@@ -1,0 +1,34 @@
+require 'spec_helper'
+
+describe 'creating a new user' do
+  it 'saves a user and shows the users details' do
+    visit users_url
+
+    click_link 'Create User'
+
+    expect(current_path).to eq(new_user_path)
+
+    fill_in 'Name', with: 'Joe'
+    fill_in 'Email', with: 'joe@xmpl.com'
+    fill_in 'Password', with: 'secret'
+    fill_in 'Confirm Password', with: 'secret'
+
+    click_button 'Create Account'
+
+    expect(current_path).to eq(user_path(User.last))
+
+    expect(page).to have_text("Joe")
+    expect(page).to have_text("joe@xmpl.com")
+    expect(page).to have_text("User successfully created!")
+  end
+
+  it 'does not save an invalid user' do
+    visit new_user_url
+
+    expect {
+        click_button 'Create Account' 
+    }.not_to change(User, :count)
+
+    expect(page).to have_text('error')
+  end
+end
