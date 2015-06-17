@@ -19,7 +19,7 @@ describe 'creating a new user' do
 
     expect(page).to have_text("Joe")
     expect(page).to have_text("joe@xmpl.com")
-    expect(page).to have_text("User successfully created!")
+    expect(page).to have_text("Account successfully created!")
 
     expect(page).not_to have_link('Sign Up')
     expect(page).not_to have_link('Sign In')

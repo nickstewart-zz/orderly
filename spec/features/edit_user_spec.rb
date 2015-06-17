@@ -19,7 +19,7 @@ describe 'editing a users details' do
     expect(current_path).to eq(user_path(user))
 
     expect(page).to have_text('Updated User Name')
-    expect(page).to have_text('User successfully updated!')
+    expect(page).to have_text('Account successfully updated!')
   end
 
   it 'does not update date a user it user is invalid' do

@@ -30,6 +30,7 @@ describe 'Signing in' do
 	  expect(page).to have_link('Account Settings')
       expect(page).not_to have_link('Sign In')
       expect(page).not_to have_link('Sign Up')
+      expect(page).to have_link('Sign Out')
 	end
 
 	it 'does not sign in an invalid user email/password combination' do
@@ -48,5 +49,6 @@ describe 'Signing in' do
 	  expect(page).not_to have_link(user.name)
       expect(page).to have_link('Sign In')
       expect(page).to have_link('Sign Up')
+      expect(page).not_to have_link('Sign Out')
 	end
 end
