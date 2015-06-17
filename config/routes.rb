@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :orders do
     resources :products
   end
-
+  get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
 
   # get 'orders' => 'orders#index'
