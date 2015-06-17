@@ -24,9 +24,10 @@ describe 'Signing in' do
 	  
 	  click_button 'Sign In'
 	  expect(current_path).to eq(user_path(user))
-	  expect(page).to have_text("Welcome back, #{user.name}!")
 
+	  expect(page).to have_text("Welcome back, #{user.name}!")
 	  expect(page).to have_link(user.name)
+	  expect(page).to have_link('Account Settings')
       expect(page).not_to have_link('Sign In')
       expect(page).not_to have_link('Sign Up')
 	end
