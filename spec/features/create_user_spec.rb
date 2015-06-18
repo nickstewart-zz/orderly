@@ -4,9 +4,9 @@ describe 'creating a new user' do
   it 'saves a user and shows the users details' do
     visit users_url
 
-    click_link 'Create User'
+    click_link 'Sign Up'
 
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq(signup_path)
 
     fill_in 'Name', with: 'Joe'
     fill_in 'Email', with: 'joe@xmpl.com'
@@ -26,7 +26,7 @@ describe 'creating a new user' do
   end
 
   it 'does not save an invalid user' do
-    visit new_user_url
+    visit signup_url
 
     expect {
         click_button 'Create Account' 

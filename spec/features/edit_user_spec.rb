@@ -4,6 +4,8 @@ describe 'editing a users details' do
   it 'updates and saves the users edited details' do
     user = User.create!(user_attributes)
 
+    sign_in(user)
+
     visit user_url(user)
 
     click_link "Edit Account"
@@ -24,7 +26,9 @@ describe 'editing a users details' do
 
   it 'does not update date a user it user is invalid' do
     user = User.create!(user_attributes)
-
+    
+    sign_in(user)
+    
     visit edit_user_url(user)
 
     fill_in 'Name', with: " "
