@@ -28,9 +28,9 @@ describe 'Signing in' do
 	  expect(page).to have_text("Welcome back, #{user.name}!")
 	  expect(page).to have_link(user.name)
 	  expect(page).to have_link('Account Settings')
-      expect(page).not_to have_link('Sign In')
-      expect(page).not_to have_link('Sign Up')
-      expect(page).to have_link('Sign Out')
+	  expect(page).not_to have_link('Sign In')
+	  expect(page).not_to have_link('Sign Up')
+	  expect(page).to have_link('Sign Out')
 	end
 
 	it 'does not sign in an invalid user email/password combination' do
@@ -47,8 +47,20 @@ describe 'Signing in' do
 	  expect(page).to have_text("Invalid email or password.")
 
 	  expect(page).not_to have_link(user.name)
-      expect(page).to have_link('Sign In')
-      expect(page).to have_link('Sign Up')
-      expect(page).not_to have_link('Sign Out')
+	  expect(page).to have_link('Sign In')
+	  expect(page).to have_link('Sign Up')
+	  expect(page).not_to have_link('Sign Out')
+	end
+
+	it "redirects to the intended page" do
+	  user = User.create!(user_attributes)
+
+	  visit users_url
+
+	  expect(current_path).to eq(new_session_path)
+
+	  sign_in(user)
+
+	  expect(current_path).to eq(users_path)
 	end
 end
