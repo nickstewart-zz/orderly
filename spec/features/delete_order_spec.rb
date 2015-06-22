@@ -1,4 +1,9 @@
-describe "Deleting a movie" do
+describe "Deleting an order" do
+  before do 
+    admin = User.create!(user_attributes(admin: true))
+    sign_in(admin)
+  end
+
   it "destroys the movie and shows the movie listing without the deleted movie" do
     order = Order.create(order_attributes)
 

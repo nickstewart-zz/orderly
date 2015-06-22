@@ -20,8 +20,10 @@
   <p>Total: <%= number_to_currency(@order.total) %></p>
   <p><%= link_to "Add New Product", new_order_product_path(@order) %></p>
   <p>
+  <% if current_user_admin? %>
   <%= link_to("Edit", edit_order_path(@order)) %> |
   <%= link_to("Delete", order_path(@order), method: :delete, data: { confirm: 'Are you sure?' }) %> |
+  <% end %>
   <%= link_to pluralize(@order.products.size, "Product"), order_products_path(@order) %>
   </p>
 </article>

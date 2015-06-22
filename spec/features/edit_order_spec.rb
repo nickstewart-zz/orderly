@@ -1,5 +1,9 @@
 describe "Editing an order" do
-  
+  before do 
+    admin = User.create!(user_attributes(admin: true))
+    sign_in(admin)
+  end
+      
   it "updates the order and shows the order's updated details" do
     order = Order.create(order_attributes)
     

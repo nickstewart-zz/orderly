@@ -1,4 +1,9 @@
 describe "Creating a new order" do
+  before do 
+    admin = User.create!(user_attributes(admin: true))
+    sign_in(admin)
+  end
+  
   it "saves the order and shows the new order's details" do
     visit orders_url
 
