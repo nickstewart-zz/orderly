@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe 'deleting a user' do
+  before do
+    admin = User.create!(user_attributes(name: "Admin", admin: true, email: "admin@xmpl.com"))
+    sign_in(admin)
+  end
+
   it 'destroys the user account and redirects to the home page' do
     user = User.create!(user_attributes)
 
-    sign_in(user)
- 
     visit user_path(user)
 
     click_link 'Delete Account'
@@ -18,16 +21,16 @@ describe 'deleting a user' do
     expect(page).not_to have_text(user.name) 
   end
 
-  it 'automatically signs out user' do
-    user = User.create!(user_attributes)
+  #it 'automatically signs out user' do
+   # user = User.create!(user_attributes)
 
-    sign_in(user)
+    #sign_in(user)
 
-    visit user_path(user)
+    #visit user_path(user)
 
-    click_link 'Delete Account'
+    #click_link 'Delete Account'
 
-    expect(page).to have_link('Sign In')
-    expect(page).not_to have_link('Sign Out')
-  end
+    #expect(page).to have_link('Sign In')
+    #expect(page).not_to have_link('Sign Out')
+  #end
 end
