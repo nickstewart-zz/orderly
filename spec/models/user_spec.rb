@@ -38,7 +38,7 @@ describe 'A User' do
 
   it 'requires a unique and case insensitive email addresses' do
     user1 = User.create!(user_attributes)
-    
+
     user2 = User.new(email: user1.email.upcase)
 
     user2.valid?
@@ -95,6 +95,21 @@ describe 'A User' do
 
     expect(user.password_digest.present?).to eq(true)
   end
+
+  it "has products" do
+    user = User.create!(user_attributes)
+    order1 = Order.new(order_attributes(customer_company: "Wunjo"))
+    order2 = Order.new(order_attributes(customer_company: "Mattchets"))
+
+    product1 = order1.products.new(product_attributes(code: "Pierre Bensusan"))
+    product1.user = user
+    product1.save!
+
+    product2 = order2.products.new(product_attributes(code: "Thomas Leeb"))
+    product2.user = user
+    product2.save!
+
+    expect(user.products).to include(product1)
+    expect(user.products).to include(product2)
+  end
 end
-
-
