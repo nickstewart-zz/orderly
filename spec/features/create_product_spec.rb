@@ -1,8 +1,13 @@
 describe "Creating a new product" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+  
   it "saves the product and shows the new product within the new order details" do
     order = Order.create(order_attributes(customer_company: "Bluedog"))
     product = order.products.create(product_attributes(code: "O-22"))
- 
+
     visit order_url(order)
 
     expect(page).to have_text('Bluedog')
@@ -23,4 +28,3 @@ describe "Creating a new product" do
     expect(current_path).to eq(order_path(order))
   end
 end
-
