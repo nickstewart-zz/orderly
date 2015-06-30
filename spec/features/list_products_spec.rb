@@ -1,4 +1,8 @@
 describe "Viewing a list of products" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
   
   it "shows the products for a specific order" do
     order1 = Order.create(order_attributes(customer_company: "Bluedog"))
@@ -7,9 +11,9 @@ describe "Viewing a list of products" do
 
     order2 = Order.create(order_attributes(customer_company: "TFOA"))
     product3 = order2.products.create(product_attributes(code: "F-38"))
-    
+
     visit order_products_url(order1)
-        
+
     expect(page).to have_text(product1.code)
     expect(page).to have_text(product2.code)
     expect(page).not_to have_text(product3.code)
