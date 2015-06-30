@@ -1,16 +1,20 @@
-describe "Viewing a list of products" do
-  before do
-    user = User.create!(user_attributes)
-    sign_in(user)
-  end
-  
-  it "shows the products for a specific order" do
-    order1 = Order.create(order_attributes(customer_company: "Bluedog"))
-    product1 = order1.products.create(product_attributes(code: "O-22"))
-    product2 = order1.products.create(product_attributes(code: "F-35 IR/RW"))
+require 'spec_helper'
 
-    order2 = Order.create(order_attributes(customer_company: "TFOA"))
-    product3 = order2.products.create(product_attributes(code: "F-38"))
+describe "Viewing a list of products" do
+
+  before do
+    @user = User.create!(user_attributes)
+    sign_in(@user)
+  end
+
+  it "shows the products for a specific order" do
+    order1 = Order.create!(order_attributes(customer_company: "Guitar Guitar"))
+    product1 = order1.products.create!(product_attributes(code: "P-TEST1", user: @user))
+    product2 = order1.products.create!(product_attributes(code: "P-TEST2", user: @user))
+
+
+    order2 = Order.create!(order_attributes(customer_company: "TFOA"))
+    product3 = order2.products.create!(product_attributes(code: "P-TEST3", user: @user))
 
     visit order_products_url(order1)
 
