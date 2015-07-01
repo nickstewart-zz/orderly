@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @products = @user.products
   end
 
   def new
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   	  redirect_to @user, notice: 'Account successfully updated!'
   	else
   	  render :edit
-  	end	
+  	end
   end
 
   def create

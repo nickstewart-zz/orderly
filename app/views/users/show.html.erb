@@ -3,6 +3,19 @@
     <h1><%= @user.name %></h1>
     <h2><%= mail_to(@user.email) %></h2>
   </header>
+  <% if @products.any? %>
+  <h3>Products</h3>
+  <ol>
+    <% @products.each do |product| %>
+    <li>
+      <%= link_to product.order %>
+      <span><%= product.code %></span>
+      <span><%= product.group %>, <%= product.options_standard %>, Options: <%= product.options_additional %></span>
+      <span><%= number_to_currency(product.price) %></span>
+    </li>
+    <% end %>
+  </ol>
+  <% end %>
   <footer>
   <% if current_user?(@user) %>
     <%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %>
