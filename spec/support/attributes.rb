@@ -1,7 +1,5 @@
 def order_attributes(overrides = {})
   {
-    customer_company: "Bluedog",
-    customer_name: "Jenn",
     total: 678.00
   }.merge(overrides)
 end
@@ -22,5 +20,11 @@ def user_attributes(overrides = {})
     email: "user@example.com",
     password: "secret",
     password_confirmation: "secret"
+  }.merge(overrides)
+end
+
+def customer_attributes(overrides = {})
+  {
+    name: "Example Customer"
   }.merge(overrides)
 end
